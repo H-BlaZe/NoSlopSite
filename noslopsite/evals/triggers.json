@@ -1,0 +1,25 @@
+{
+  "skill": "noslopsite",
+  "test_cases": [
+    {
+      "input": "Make my vibe-coded website look professional",
+      "should_trigger": true
+    },
+    {
+      "input": "Audit this site for polish and accessibility issues",
+      "should_trigger": true
+    },
+    {
+      "input": "Improve the performance and UX of this React app",
+      "should_trigger": true
+    },
+    {
+      "input": "What's the weather today?",
+      "should_trigger": false
+    },
+    {
+      "input": "Write a Python function to sort a list",
+      "should_trigger": false
+    }
+  ]
+}

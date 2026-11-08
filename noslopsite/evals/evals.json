@@ -1,0 +1,33 @@
+{
+  "skill": "noslopsite",
+  "test_cases": [
+    {
+      "name": "audit_frontend_polish",
+      "input": "Audit this React site and tell me what's missing to make it look professional",
+      "assertions": [
+        "Analyzes the codebase",
+        "Loads design and interaction rules",
+        "Produces prioritized audit report",
+        "Suggests concrete fixes"
+      ]
+    },
+    {
+      "name": "fix_accessibility",
+      "input": "Make the forms and buttons on this site accessible",
+      "assertions": [
+        "Loads a11y and forms rules",
+        "Identifies missing labels, focus states, contrast",
+        "Provides specific code improvements"
+      ]
+    },
+    {
+      "name": "performance_upgrade",
+      "input": "This Next.js site is slow. Improve Core Web Vitals and polish",
+      "assertions": [
+        "Loads performance rules",
+        "Looks for image optimization, font loading, layout shift",
+        "Gives actionable performance fixes"
+      ]
+    }
+  ]
+}
