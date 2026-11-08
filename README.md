@@ -6,7 +6,7 @@ NoSlopSite is an AI skill that audits your codebase and selectively applies the 
 
 It doesn’t dump 150 rules at once. It looks at your project, loads only the relevant rules, and gives you a prioritized audit + concrete fixes.
 
-Works with Claude Code, Codex, Grok, OpenCode, Cursor, and other AI coding assistants that support custom skills or instruction files.
+Works with **Grok**, **Claude Code**, **Antigravity**, Codex, OpenCode, Cursor, and other AI coding assistants that support custom skills. Invoke with `/noslopsite` or just describe what you want.
 
 ## What it fixes
 
@@ -20,31 +20,82 @@ Works with Claude Code, Codex, Grok, OpenCode, Cursor, and other AI coding assis
 
 ## Installation
 
-Clone or download this repo, then copy the `noslopsite` folder into the skills / instructions directory used by your AI assistant.
+Clone the repo, then copy the `noslopsite` folder into your AI assistant’s skills directory.
 
-### Common locations
-
-| Assistant       | Typical install path                          |
-|-----------------|-----------------------------------------------|
-| **Grok**        | `~/.grok/skills/noslopsite` or `.grok/skills/` |
-| **Claude Code** | `~/.claude/skills/noslopsite` or project `.claude/skills/` |
-| **Codex**       | Place in your Codex skills / custom instructions folder |
-| **OpenCode**    | Copy into OpenCode’s skills or agents directory |
-| **Cursor**      | Add as a custom skill or include the folder in project rules |
-| **Other**       | Any folder your tool watches for skills, rules, or custom instructions |
+### Clone (Linux / macOS / Windows)
 
 ```bash
-# Example (adjust path for your tool)
+# Linux / macOS / Windows (Git Bash or WSL)
 git clone https://github.com/H-BlaZe/NoSlopSite.git
-cp -r NoSlopSite/noslopsite ~/.your-tool/skills/
+cd NoSlopSite
 ```
+
+```powershell
+# Windows 11 (PowerShell)
+git clone https://github.com/H-BlaZe/NoSlopSite.git
+cd NoSlopSite
+```
+
+### Install for your assistant
+
+#### Grok
+```bash
+# Linux / macOS
+mkdir -p ~/.grok/skills
+cp -r noslopsite ~/.grok/skills/
+
+# Or project-local
+mkdir -p .grok/skills
+cp -r noslopsite .grok/skills/
+```
+
+```powershell
+# Windows 11
+mkdir $env:USERPROFILE\.grok\skills -Force
+Copy-Item -Recurse noslopsite $env:USERPROFILE\.grok\skills\
+```
+
+#### Claude Code
+```bash
+# Linux / macOS
+mkdir -p ~/.claude/skills
+cp -r noslopsite ~/.claude/skills/
+
+# Or project-local
+mkdir -p .claude/skills
+cp -r noslopsite .claude/skills/
+```
+
+```powershell
+# Windows 11
+mkdir $env:USERPROFILE\.claude\skills -Force
+Copy-Item -Recurse noslopsite $env:USERPROFILE\.claude\skills\
+```
+
+#### Antigravity
+Copy the `noslopsite` folder into Antigravity’s skills / custom instructions directory (check Antigravity docs for the exact path on your system).
+
+#### Other assistants (Codex, OpenCode, Cursor, etc.)
+Copy the `noslopsite` folder into the skills or custom instructions directory your tool uses.
 
 Restart or reload your assistant if it doesn’t pick up new skills automatically.
 
 ## Usage
 
-Just talk to your AI normally. Examples that trigger the skill:
+### Invoke with slash command
+Most assistants support calling the skill directly:
 
+```
+/noslopsite
+```
+
+or
+
+```
+/noslopsite audit this site and fix the biggest professional gaps
+```
+
+### Or just talk normally
 - “Audit this site and make it professional”
 - “Fix the polish and accessibility of this React app”
 - “This Next.js site feels vibe-coded. Upgrade it.”
@@ -59,6 +110,7 @@ The skill will:
 3. Give you a prioritized audit
 4. Provide concrete code fixes for the highest-impact issues
 5. Suggest verification steps (Lighthouse, axe, visual/keyboard checks)
+
 
 ## Example output
 
