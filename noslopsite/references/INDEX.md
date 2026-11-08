@@ -16,7 +16,21 @@ Use this index to decide which rule files to load based on the codebase and user
 - [[rules-forms]] — Labels, validation, errors, autofill, multi-step, accessibility
 - [[rules-architecture]] — Error handling, state management, deep linking, reliability, progressive enhancement
 
-## Quick Selection
+## Framework-specific guidance
+
+Load these when the stack matches:
+- [[frameworks/nextjs]] — Next.js App Router patterns
+- [[frameworks/react-vite]] — React + Vite projects
+- [[frameworks/tailwind]] — Tailwind CSS specific guidance
+- [[frameworks/vue]] — Vue / Nuxt patterns
+
+## Verification
+
+Always suggest or perform available checks after changes:
+- Lighthouse / Web Vitals for performance
+- axe-core or similar for accessibility
+- Visual / keyboard checks for regressions
+
 
 | User intent / detected focus | Load these |
 |------------------------------|------------|

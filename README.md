@@ -6,6 +6,8 @@ NoSlopSite is an AI skill that audits your codebase and selectively applies the 
 
 It doesn’t dump 150 rules at once. It looks at your project, loads only the relevant rules, and gives you a prioritized audit + concrete fixes.
 
+Works with Claude Code, Codex, Grok, OpenCode, Cursor, and other AI coding assistants that support custom skills or instruction files.
+
 ## What it fixes
 
 - Generic typography and inconsistent spacing
@@ -18,18 +20,26 @@ It doesn’t dump 150 rules at once. It looks at your project, loads only the re
 
 ## Installation
 
-1. Clone or download this repo
-2. Copy the `noslopsite` folder into your skills directory:
+Clone or download this repo, then copy the `noslopsite` folder into the skills / instructions directory used by your AI assistant.
+
+### Common locations
+
+| Assistant       | Typical install path                          |
+|-----------------|-----------------------------------------------|
+| **Grok**        | `~/.grok/skills/noslopsite` or `.grok/skills/` |
+| **Claude Code** | `~/.claude/skills/noslopsite` or project `.claude/skills/` |
+| **Codex**       | Place in your Codex skills / custom instructions folder |
+| **OpenCode**    | Copy into OpenCode’s skills or agents directory |
+| **Cursor**      | Add as a custom skill or include the folder in project rules |
+| **Other**       | Any folder your tool watches for skills, rules, or custom instructions |
 
 ```bash
-# Example locations (adjust to your setup)
-cp -r noslopsite ~/.grok/skills/
-# or
-cp -r noslopsite .grok/skills/
-# or wherever your AI coding tool loads skills from
+# Example (adjust path for your tool)
+git clone https://github.com/H-BlaZe/NoSlopSite.git
+cp -r NoSlopSite/noslopsite ~/.your-tool/skills/
 ```
 
-3. Restart or reload your AI tool if needed.
+Restart or reload your assistant if it doesn’t pick up new skills automatically.
 
 ## Usage
 
@@ -41,11 +51,14 @@ Just talk to your AI normally. Examples that trigger the skill:
 - “Improve performance and UX details”
 - “What professional details is this frontend missing?”
 
+Or use the recommended prompt in [`examples/recommended-prompt.md`](examples/recommended-prompt.md).
+
 The skill will:
 1. Analyze your stack and codebase
-2. Load only the relevant rule categories
+2. Load only the relevant rule categories (and framework-specific guidance when it detects Next.js, React+Vite, Tailwind, Vue, etc.)
 3. Give you a prioritized audit
 4. Provide concrete code fixes for the highest-impact issues
+5. Suggest verification steps (Lighthouse, axe, visual/keyboard checks)
 
 ## Example output
 
@@ -60,6 +73,9 @@ The skill will:
 - No empty states on lists
 - Form inputs using placeholder as label
 - Inconsistent spacing system
+
+### Already solid
+- Color contrast on primary buttons looks good
 ...
 ```
 
@@ -72,13 +88,8 @@ noslopsite/
 ├── evals/
 └── references/
     ├── INDEX.md
-    ├── rules-design.md
-    ├── rules-interaction.md
-    ├── rules-a11y.md
-    ├── rules-performance.md
-    ├── rules-seo.md
-    ├── rules-forms.md
-    └── rules-architecture.md
+    ├── rules-*.md
+    └── frameworks/       # Next.js, React+Vite, Tailwind, Vue
 ```
 
 ## Contributing
@@ -87,7 +98,7 @@ Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Good additions:
 - More rules with clear detection + fix guidance
-- Stack-specific examples (Next.js, Tailwind, Vue, etc.)
+- Additional framework examples
 - Real before/after case studies
 
 ## License
